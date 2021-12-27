@@ -13,11 +13,16 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var Datastore = require('nedb-promise');
 var db = new Datastore({ filename: path.join(__dirname, 'users.db'), autoload: true });
-var ip = require("ip");
-console.dir ( ip.address() );
-publicIp.v4().then(ip => {
-  console.log("your public ip address", ip);
-});
+
+const publicIp = require('public-ip');
+
+(async () => {
+	console.log(await publicIp.v4());
+	//=> '46.5.21.123'
+
+	console.log(await publicIp.v6());
+	//=> 'fe80::200:f8ff:fe21:67cf'
+})();
 
 try {
   var config = require('./public/js/config/config');
