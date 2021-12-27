@@ -1,6 +1,9 @@
 {
   "name": "roboserver",
   "version": "12.16.1",
+  "engines": {
+    "node": "12.16.1"
+  },
   "private": true,
   "scripts": {
     "test": "node ./public/js/server/robotTest.js & node ./public/js/server/inventoryTest.js",
