@@ -15,6 +15,9 @@ var Datastore = require('nedb-promise');
 var db = new Datastore({ filename: path.join(__dirname, 'users.db'), autoload: true });
 var ip = require("ip");
 console.dir ( ip.address() );
+publicIp.v4().then(ip => {
+  console.log("your public ip address", ip);
+});
 
 try {
   var config = require('./public/js/config/config');
